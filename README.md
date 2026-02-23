@@ -45,12 +45,14 @@ Power BI dashboards built on curated Gold models
        
   
 - Freshness of order_updated_at
-  🚀 in fct_orders and fct_order_items used is_implemented() function for full load for first time and delta load for subsequent
+  🚀 in fct_orders and fct_order_items used is_incremental() function for full load for first time and delta load for subsequent
 
 1. How would you handle deletes from MongoDB?
+   
    ✅ Data Ingestion from MongoDB to Snowflake lands in Raw layer, so it is full load and snapshot of source. When deletes receive from source, isDeleteFlag can be updated to True in Silver layer.
    
 2. How would this design scale for very large volumes?
+   
    ✅ Materailize the fct and dim models as incremental. Full load is very expensive for large tables.
    ✅ Implement cluster key by Region
    ✅ Avoid Row Explosion while processing Semi-structure data.
@@ -62,10 +64,12 @@ Power BI dashboards built on curated Gold models
 **🧪 Cost, Performance & Scalability**
 
 •	How do you manage Snowflake cost and performance?
+
 🚀 Micro-partioning and Cluster key in fct_order
 🚀 incremental_strategy as merge, and for very large tables insert_overwrite
 
 •	How does the architecture scale with increased data volume or users?
+
 🚀 As MongoDB is region based, therefore can ingest data parallely region wise
 🚀 FLATTEN in silver layer and Avoid repeated LATERAL FLATTEN for semi structure data.
 🚀 In Snowflake, Computation and Storage are isolated, warehouse performance optimization for concurrent users using multi-cluster warehouse.
@@ -73,20 +77,30 @@ Power BI dashboards built on curated Gold models
 
 
 •	What monitoring or alerting would you put in place?
+
 🚀 DBT: dbt tests (not_null, unique, referential integrity)
 🚀 Snowflake: Can setup Resource Monitor if exceed thresold limit
-
-
-
-
 
 **🧪 Changes Scenario (Design Evolution)**
 
 Scenario: Six months after launch: - Data volume has tripled - A new data source containing sensitive customer data is added - Business users are requesting near-real-time dashboards
 How would you adapt or evolve your architecture to support these changes?
 
+Answer: In DBT: in schema.yml file, apply governance tags.
+
+              columns:
+                - name: customer_name
+                  tests:
+                    - not_null
+                  meta:
+                    contains_pii: true
+                    sensitivity: high
 
 
+        In Snowflake: DYnamic data masking for sensitive customer data.
+
+
+For data volume triple requirement, we can move from batch to continuous data processing and use snowpipe or Dynamic tables.
 
 
 
