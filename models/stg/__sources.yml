@@ -1,0 +1,18 @@
+version: 2
+
+# Try using these source definitions instead!
+sources:
+  - name: my_source
+    database: MY_DB
+    schema: MY_SCHEMA
+    description: E-commerce data for my project
+    tables:
+      - name: CUSTOMERS
+        description: One record per person who has purchased one or more items
+      - name: ORDERS
+        description: One record per order (consisting of one or more order items)
+        config:
+          loaded_at_field: ordered_at
+      - name: PRODUCTS
+        description: One record per SKU for items sold in stores
+   

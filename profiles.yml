@@ -1,0 +1,18 @@
+my_project:
+  target: MY_SCHEMA
+  outputs:
+    MY_SCHEMA:
+      type: snowflake
+      account: VKWBNWL-FO63484
+      user: dbt
+
+      role: DBT_TRANSFORM
+      private_key: "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC8oalx0GEO49nU\nLn+qcxQWr8nIZF5PwcICQLQ8bU6+rXmG09vu8yFom8rORCLetpksZv7UyQl87qqe\n5fPC5cG+mCGfydFzNx7xoGHTH4ZFJpsgGRVwENPJb9FiupZzJKL2BDnKbgG5+dWI\nW5y0pJ05rtYdnsGAufJG8DDxWklbdnxgMWDaMWLNEDKFJCw8wiahk95gURng9ssd\ny7fdMjwvSQr/Nq37MXu6PYgKTyZ96hxuS+RuxK3HcwWhusHwNAE7OhfCOPYN/8Kc\nQvag2vzgiPmjiOy+QLHMi0LtmjHxAW96t0ndFCDgJecD83L7KIS8X5jzUorhfcYT\n1pGVPispAgMBAAECggEALIJY4SoyPLk25QIzzZxp2RCRpF9KgbdOeAmcfcWtFwEH\n8/B5rOBhubVJHXKmZ7beXcPPzZXCT2BhkizgX9Sm6roq9PFCItWWz5zweEiv/hEl\n+WTx0gemcZmY5prwdSrn6PUGTeW3MpLo98vmJhnRn5LJoyOatS0rJeH3KnwLYzEi\nNmMSXjUo3N5nwbyKuK5HBvOmcq/SxKzAf1JK0sRopiY7pSXPOQ+psHCFcepnPMP9\nJJagHlDXBPQMyuLp2Ei4FpXUthRJeitmG0gcaPnd2FcICRP974LwxQODclMPoDiH\nWS/sHD5zcCdJvS3U8zTXps0bs8UDdzWQ13ysNNB4gQKBgQDo8GRUpZNXN3gn/02d\n4lajwDMBfzV+WkNLqNMU7zwq3tlcthZxqGZ9EkKJmSOzavmnDaALHpaQXBTYWGq+\nA0QyCGQ0lYM1TSPzTXPWssS+raOItd2A2FvU0pdX1hN6RdrdyEOqzgz4S5RflcZL\niAgh+VnHL2yKKfobN1dNyr3k1QKBgQDPTlbm1lSO7YtAKERFsQRZE4cML83G5BOx\nlT1V5mzOhhdyxADGmx8tzUp9rF8UqRGrIyiGuS+/jvFI+7Wl+Zu0uQc7UA3UpPda\nH48Hzv4otSIXRFlTvI8sCrOL59+uvbBxWqiCHlkkXY/okJ30ccXAd3R+toKwIB9H\nlSepvhtnBQKBgB+DNe+FntMzu9udXEC5uALbI4tWTERVrbj0k+nHG5qpHzq9n3es\n0oClEb9PqlbBaBjDbR1T/AZ3jpJeE8K06mriW7wJZgC1+OEXX05yTM+G6hK6l8aw\nfmviOXs2iNgHzz4ls5HN4k9M2ju8JWFee8ss0opxzfs7BozcBcGOZfYpAoGAYksA\nxV7mpQZYukjdZjXym9G4fLzF0wIdnFvowywIdzv5Lj9lJsYyWGM4aLIsOv2XFRAM\njSSNUUSTf0lp7ZKWk3APz727cRHu/lpsVQV+WQrZaTLNL/j94aIJU9LTqmTinjyg\nHWIKXkXGkDzRyC+R1hpNsC8VdDEm46gDMGalU4kCgYBQN0XZeXuJYXGm4Ic6Esuf\ntLA2DKyno6+9AhYmQ22X4BvCGpBfZ4hte2zfYSeZEj9GYo6fhikSg/5KAHZYscyS\neAbaH/36of3utUstA/0t4vELg1ew/hfV3txKWCftY4eWL6xhEpqq/LBeBPN3AYVn\nX9TX6YUlXNfCvnYpIzpaYQ==\n-----END PRIVATE KEY-----\n"
+      private_key_passphrase:
+
+      database: MY_DB
+      schema: MY_SCHEMA
+      threads: 1
+      warehouse: COMPUTE_WH
+
+  
