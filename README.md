@@ -13,11 +13,18 @@ Key challenges:
 - Soft deletes (isDeleted flag)
 
 **Ingestion Layer** : RAW in Snowflake
+
 Raw JSON data loaded into Snowflake as VARIANT columns
+**See Path**: Snowflake/README.md
 
 **Transformation Layer (Modelling in dbt)**
+
 Bronze: Raw JSON ingestion - Model: STG
+**See Path**: models/stg
+
 Silver: Flattened and normalized relational - models: FCT, DIM
+**See Path**: models/fct, models/dim
+
 Gold: Business-ready reporting tables - models: PUB
 
 **Consumption Layer**
