@@ -1,5 +1,5 @@
 
-Snowflake-Dbt Integration using Key Pair
+**Snowflake-Dbt Integration using Key Pair**
 
 **Database Objects created in Snowflake**
 Database: MY_DB
@@ -10,17 +10,20 @@ DIM TABLES: MY_SCHEMA.DIM_CUSTOMERS, MY_SCHEMA.DIM_PRODUCTS
 
 WAREHOUSE: MY_COMPUTE
 
-KEY PAIR:
+**KEY PAIR:**
 - USER : DBT with public key
 - ROLE : DBT_TRANSFORM (PROVIDE ACCESS TO ABOVE DB OBJECTS AND WAREHOUSE) AND ASSIGN THE ROLE TO USER DBT
 
 
 **RAW SQLs**:
-create table products (doc variant);
-create table customers (doc variant);
-create table orders (doc variant);
 
-insert into products (doc)
+1. create table products (doc variant);
+
+2. create table customers (doc variant);
+
+3. create table orders (doc variant);
+
+4. insert into products (doc)
 SELECT PARSE_JSON('{
   "productId": "P-101",
   "sku": "SKU-101",
@@ -31,7 +34,7 @@ SELECT PARSE_JSON('{
   "audit": {"updatedAt": {"$date": "2025-11-01T00:00:00Z"}}
 }');
 
-insert into customers (doc) 
+5. insert into customers (doc) 
 select parse_json ('{"customerId":"C-9001",
   "region":"IN_WEST",
   "name":{"first":"Asha","last":"Mehta"},
@@ -44,7 +47,7 @@ select parse_json ('{"customerId":"C-9001",
   "isDeleted": false
 }');
   
-insert into orders (doc) 
+6. insert into orders (doc) 
 select parse_json('{
   "orderId": "OA-10001",
   "region": "IN_WEST",
