@@ -1,10 +1,10 @@
-<img width="468" height="54" alt="image" src="https://github.com/user-attachments/assets/a0eb9f77-5f14-4819-9c59-f9ddb5e993a4" /><img width="468" height="54" alt="image" src="https://github.com/user-attachments/assets/3e6ef771-6b15-4b1f-9203-e63450272d08" /># Snowflake-Dbt-Order-ND856
+**Snowflake-Dbt-Order-ND856**
 Case Study for Snowflake-Dbt Order, Customer, Products Analytics Warehouse with Incremental Processing and Data Quality Controls.
 
 <img width="895" height="479" alt="Screenshot 2026-02-23 at 4 52 57 PM" src="https://github.com/user-attachments/assets/17dba154-baa5-47b9-b665-ac32cb0a826d" />
 
 Context:
-You are working with operational data stored in MongoDB. Each region has its own MongoDB database. Data is landed into Snowflake as raw JSON (VARIANT) tables and must be transformed using dbt for reporting in Power BI.
+While working with operational data stored in MongoDB, each region has its own MongoDB database. Data is landed into Snowflake as raw JSON (VARIANT) tables and must be transformed using dbt for reporting in Power BI.
 
 Key challenges:
 - Nested and complex JSON structures
@@ -34,8 +34,18 @@ Power BI dashboards built on curated Gold models
 🧪 Testing
 
 - order_id uniqueness in fct_orders
+  🚀 in fct_orders configured unique key.
+  
 - Referential integrity between fct_orders and dimensions
+  🚀 in fct_orders.yml file implemented tests - not_null and relationships.
+    1. not_null: in fct_order table - column order_id, cusstomer_id, product_id
+    2. relationships:
+         => fct_order.customer_id references to dim_customers.customer_id
+         => fct_order.product_id references to dim_products.product_id
+       
+  
 - Freshness of order_updated_at
+  🚀 in fct_orders and fct_order_items used is_implemented() function for full load for first time and delta load for subsequent
 
 1. How would you handle deletes from MongoDB?
 2. How would this design scale for very large volumes?
@@ -47,8 +57,14 @@ Power BI dashboards built on curated Gold models
 🧪 Cost, Performance & Scalability
 
 •	How do you manage Snowflake cost and performance?
+🚀 Micro-partioning and Cluster key in fct_order
+🚀 incremental_strategy as merge, and for very large tables insert_overwrite
+
 •	How does the architecture scale with increased data volume or users?
+🚀
+
 •	What monitoring or alerting would you put in place?
+🚀 
 
 
 
