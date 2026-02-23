@@ -31,7 +31,7 @@ Gold: Business-ready reporting tables - models: PUB
 Power BI dashboards built on curated Gold models
 
 
-🧪 Testing
+**🧪 Testing**
 
 - order_id uniqueness in fct_orders
   🚀 in fct_orders configured unique key.
@@ -48,29 +48,39 @@ Power BI dashboards built on curated Gold models
   🚀 in fct_orders and fct_order_items used is_implemented() function for full load for first time and delta load for subsequent
 
 1. How would you handle deletes from MongoDB?
+   ✅ Data Ingestion from MongoDB to Snowflake lands in Raw layer, so it is full load and snapshot of source. When deletes receive from source, isDeleteFlag can be updated to True in Silver layer.
+   
 2. How would this design scale for very large volumes?
+   ✅ Materailize the fct and dim models as incremental. Full load is very expensive for large tables.
+   ✅ Implement cluster key by Region
+   ✅ Avoid Row Explosion while processing Semi-structure data.
+   
 3. Where would you implement Power BI RLS and why?
+   ✅ In Snowflake we can create Secure views, Row access policies and setup RBAC.
 
 
-
-
-🧪 Cost, Performance & Scalability
+**🧪 Cost, Performance & Scalability**
 
 •	How do you manage Snowflake cost and performance?
 🚀 Micro-partioning and Cluster key in fct_order
 🚀 incremental_strategy as merge, and for very large tables insert_overwrite
 
 •	How does the architecture scale with increased data volume or users?
-🚀
+🚀 As MongoDB is region based, therefore can ingest data parallely region wise
+🚀 FLATTEN in silver layer and Avoid repeated LATERAL FLATTEN for semi structure data.
+🚀 In Snowflake, Computation and Storage are isolated, warehouse performance optimization for concurrent users using multi-cluster warehouse.
+🚀 Incremental processing and cluster key - region, created_at
+
 
 •	What monitoring or alerting would you put in place?
-🚀 
+🚀 DBT: dbt tests (not_null, unique, referential integrity)
+🚀 Snowflake: Can setup Resource Monitor if exceed thresold limit
 
 
 
 
 
-🧪 Changes Scenario (Design Evolution)
+**🧪 Changes Scenario (Design Evolution)**
 
 Scenario: Six months after launch: - Data volume has tripled - A new data source containing sensitive customer data is added - Business users are requesting near-real-time dashboards
 How would you adapt or evolve your architecture to support these changes?
