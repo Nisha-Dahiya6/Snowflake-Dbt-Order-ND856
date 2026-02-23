@@ -81,3 +81,7 @@ select parse_json('{
 }');
 
 
+<img width="1271" height="795" alt="Screenshot 2026-02-23 at 6 40 02 PM" src="https://github.com/user-attachments/assets/04f6bb6a-0766-4fb4-a2d9-8141166c3fff" />
+
+
+
