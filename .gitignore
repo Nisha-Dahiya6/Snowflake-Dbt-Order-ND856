@@ -3,4 +3,4 @@ dbt_project.yml
 README.md
 packages.yml
 dbt_project.yml
-dbt_internal_packages/
+.DS_Store
