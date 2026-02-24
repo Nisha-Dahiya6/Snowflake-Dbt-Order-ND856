@@ -102,5 +102,10 @@ Answer: In DBT: in schema.yml file, apply governance tags.
 
 For data volume triple requirement, we can move from batch to continuous data processing and use snowpipe or Dynamic tables.
 
+**TECHNOLOGIES/TOOLS USED:**
 
+1. SNOWFLAKE
+2. DBT FUSION
+3. VSCODE
+4. GITHUB
 
