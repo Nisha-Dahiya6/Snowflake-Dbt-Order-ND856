@@ -67,10 +67,13 @@ Power BI dashboards built on curated Gold models
 2. How would this design scale for very large volumes?
    
    ✅ Materailize the fct and dim models as incremental. Full load is very expensive for large tables.
+   
    ✅ Implement cluster key by Region
+   
    ✅ Avoid Row Explosion while processing Semi-structure data.
    
 3. Where would you implement Power BI RLS and why?
+   
    ✅ In Snowflake we can create Secure views, Row access policies and setup RBAC.
 
 
@@ -78,11 +81,14 @@ Power BI dashboards built on curated Gold models
 
 •	How do you manage Snowflake cost and performance?
 
+
 🚀 Micro-partioning and Cluster key in fct_order
 
 🚀 incremental_strategy as merge, and for very large tables insert_overwrite
 
+
 •	How does the architecture scale with increased data volume or users?
+
 
 🚀 As MongoDB is region based, therefore can ingest data parallely region wise
 
@@ -95,9 +101,11 @@ Power BI dashboards built on curated Gold models
 
 •	What monitoring or alerting would you put in place?
 
+
 🚀 DBT: dbt tests (not_null, unique, referential integrity)
 
 🚀 Snowflake: Can setup Resource Monitor if exceed thresold limit
+
 
 **🧪 Changes Scenario (Design Evolution)**
 
