@@ -40,7 +40,9 @@ Power BI dashboards built on curated Gold models
   🚀 in fct_orders.yml file implemented tests - not_null and relationships.
     1. not_null: in fct_order table - column order_id, cusstomer_id, product_id
     2. relationships:
+       
          => fct_order.customer_id references to dim_customers.customer_id
+       
          => fct_order.product_id references to dim_products.product_id
        
   
